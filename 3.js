@@ -30,8 +30,21 @@ function day3(input = input3) {
 }
 
 function day3p3(input = input3) {
-    return input.split('\n').reduce((acc, val) => {
-        return acc += map2[val];
+    return input.split('\n').reduce((acc, val = '', idx = 0, arr = []) => {
+        if (idx % 3 === 0) {
+            let loop = true;
+            let i = -1;
+            const fv = [...val];
+            while (loop && i <= fv.length) {
+                i += 1;
+                if (arr[idx + 1].includes(fv[i]) && arr[idx + 2].includes(fv[i])) {
+                    const offSet = fv[i].charCodeAt() < 91 ? 38 : 96;
+                    acc += fv[i].charCodeAt() - offSet;
+                    loop = false;
+                }
+            }
+        }
+        return acc;
     }, 0);
 }
 

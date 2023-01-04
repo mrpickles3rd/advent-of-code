@@ -1,4 +1,4 @@
-const { day3, day3p3, map } = require('./3');
+const { day3, day3p3 } = require('./3');
 const { input3 } = require('./3.input');
 
 /*
@@ -30,6 +30,9 @@ CrZsJsPPZsGzwwsLwLmpwMDw`;
         });
         it('Should do a thing', () => {
             expect(day3()).toEqual(7850);
+        });
+        it('Should do a thing 2', () => {
+            expect(day3p3()).toEqual(2581);
         });
     });
 });
