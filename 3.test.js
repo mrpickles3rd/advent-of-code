@@ -1,0 +1,33 @@
+const { day3, day3p3, map } = require('./3');
+const { input3 } = require('./3.input');
+
+/*
+vJrwpWtwJgWr
+hcsFMMfFFhFp            p
+
+jqHRNqRjqzjGDLGL
+rsFMfFZSrLrFZsSL    L
+
+PmmdzqPrV
+vPwwTWBwg                  P
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn      v
+ttgJtRGJQctTZtZT                    t
+CrZsJsPPZsGzwwsLwLmpwMDw            s
+ */
+
+describe('day3', () => {
+    describe('setup', () => {
+        const inp = `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`;
+        it('Should TEMP, ret the wrong item', () => {
+            expect(day3(inp)).toEqual(['p', 'L', 'P', 'v', 't', 's']);
+        });
+        it('Should do a thing', () => {
+            expect(day3()).toEqual(15422);
+        });
+    });
+});
