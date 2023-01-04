@@ -24,10 +24,12 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`;
         it('Should TEMP, ret the wrong item', () => {
-            expect(day3(inp)).toEqual(['p', 'L', 'P', 'v', 't', 's']);
+            // expect(day3(inp)).toEqual(['p', 'L', 'P', 'v', 't', 's']);
+            // expect(day3(inp)).toEqual([16, 38, 42, 22, 20, 19]);
+            expect(day3(inp)).toEqual(157);
         });
         it('Should do a thing', () => {
-            expect(day3()).toEqual(15422);
+            expect(day3()).toEqual(7850);
         });
     });
 });
