@@ -48,7 +48,7 @@ $ ls
             expect(day7()).toEqual(1454188);
         });
 
-        it.only('Should do a thing 2', () => {
+        it('Should do a thing 2', () => {
             expect(day7p7(inp)).toBe(24933642);
 
             expect(day7p7()).toBeLessThan(15711259);
