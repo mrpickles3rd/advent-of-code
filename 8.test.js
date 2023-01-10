@@ -1,4 +1,4 @@
-const { day8 } = require('./8');
+const { day8, day8p8 } = require('./8');
 const { input8 } = require('./8.input');
 
 describe('day8', () => {
@@ -22,8 +22,11 @@ describe('day8', () => {
             expect(day8()).toEqual(1538);
         });
 
-        // it('Should do another thing', () => {
-        //     expect(day8(inp)).toEqual(123);
-        // });
+        it('Should do another thing', () => {
+            expect(day8p8(inp, true)).toEqual(8);
+            expect(day8p8(inp2, true)).toEqual(1);
+            expect(day8p8(inp3, true)).toEqual(1);
+            expect(day8p8(input8, true)).toEqual(496125);
+        });
     });
 });

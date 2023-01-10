@@ -1,3 +1,4 @@
+const { forEach } = require('lodash');
 const { input8 } = require('./8.input');
 
 function day8(input = input8) {
@@ -39,6 +40,57 @@ function day8(input = input8) {
     return ret;
 }
 
+function day8p8(input = input8) {
+    let ret = 0;
+    const grid = input.split('\n').map(line => [...line]);
+    const y = grid.length;
+    const x = grid[0].length;
+    grid.forEach((v1, idx1) => v1.forEach((v2, idx2) => {
+        let top = 0;
+        let bottom = 0;
+        let left = 0;
+        let right = 0;
+
+        let loop = true;
+        let idx42 = idx2;
+        while (loop && idx42 > 0) {
+            idx42 -= 1;
+            left += 1;
+            loop = grid[idx1][idx42] < v2;
+        }
+        loop = true;
+        idx42 = idx2;
+        while (loop && idx42 < x - 1) {
+            idx42 += 1;
+            right += 1;
+            loop = grid[idx1][idx42] < v2;
+        }
+
+        loop = true;
+        idx42 = idx1;
+        while (loop && idx42 > 0) {
+            idx42 -= 1;
+            top += 1;
+            loop = grid[idx42][idx2] < v2;
+        }
+        loop = true;
+        idx42 = idx1;
+        while (loop && idx42 < y - 1) {
+            idx42 += 1;
+            bottom += 1;
+            loop = grid[idx42][idx2] < v2;
+        }
+
+        const tot = top * bottom * left * right;
+        if (tot > ret) {
+            ret = tot;
+        }
+    }));
+
+    return ret;
+}
+
 module.exports = {
     day8,
+    day8p8,
 };
