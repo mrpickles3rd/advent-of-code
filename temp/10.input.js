@@ -1,3 +1,3 @@
 module.exports = {
-    input9: ``,
+    input6: ``,
 };

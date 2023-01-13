@@ -114,7 +114,7 @@ function day7p7(input = input7) {
     for ([key, val] of sizes) {
         WTF.push([key, val])
         if (available + val >= needed) {
-            console.log("DB ... 🚀 ~ file: 7.js:105 ~ day7p7 ~ key, val", key, val)
+            // console.log("DB ... 🚀 ~ file: 7.js:105 ~ day7p7 ~ key, val", key, val)
             files.push([key, val]);
         }
     };
