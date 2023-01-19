@@ -17,7 +17,9 @@ U 2
 R 2
 D 2
 L 2`;
-        const inp3 = `U 4
+        const inp3 = `D 2
+L 2
+U 4
 R 4
 D 4
 L 4`;
@@ -28,11 +30,12 @@ D 4 - 2
 L 4 - 2
 */
 
-        it.skip('Should do one thing', () => {
-            expect(day9(inp2)).toEqual(1);
+        it('Should do one thing', () => {
+            // expect(day9(inp2)).toEqual(1);
+            // expect(day9(inp3)).toEqual(9);
             expect(day9(inp)).toEqual(13);
-            expect(day9(inp3)).toEqual(9);
             expect(day9()).toBeLessThan(6530);
+            expect(day9()).toEqual(44);
         });
 
         // it('Should do another thing', () => {
