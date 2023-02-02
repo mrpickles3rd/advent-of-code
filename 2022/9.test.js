@@ -23,6 +23,14 @@ U 4
 R 4
 D 4
 L 4`;
+        const inp4 = `R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20`;
 /*
 U 4 - 3
 R 4 - 2
@@ -32,14 +40,14 @@ L 4 - 2
 
         it('Should do one thing', () => {
             // expect(day9(inp2)).toEqual(1);
-            // expect(day9(inp3)).toEqual(9);
+            expect(day9(inp3)).toEqual(14);
             expect(day9(inp)).toEqual(13);
-            expect(day9()).toBeLessThan(6530);
-            expect(day9()).toEqual(44);
+            // expect(day9()).toBeLessThan(6530);
+            // expect(day9()).toEqual(6098);
         });
 
-        // it('Should do another thing', () => {
-        //     expect(day9(inp)).toEqual(123);
-        // });
+        it('Should do another thing', () => {
+            expect(day9(inp4, 9)).toEqual(36);
+        });
     });
 });
