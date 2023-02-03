@@ -6,11 +6,11 @@ describe('day3', () => {
         const inp = ``;
 
         it('Should do one thing', () => {
-            // expect(day3(10, 1)).toEqual(0);
-            // expect(day3(12, 12)).toEqual(3);
-            // expect(day3(23, 23)).toEqual(2);
-            expect(day3(1024, 1024)).toEqual(31);
-            expect(day3(361527, 361527)).toEqual(42);
+            // expect(day3(10)).toEqual(0);
+            // expect(day3(12)).toEqual(3);
+            // expect(day3(23)).toEqual(2);
+            expect(day3(1024)).toEqual(31);
+            expect(day3(361527)).toEqual(326);
         }, 5000);
 
         it('Should do another thing', () => {
