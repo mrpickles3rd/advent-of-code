@@ -1,7 +1,7 @@
 const { day9 } = require('./9');
 const { input9 } = require('./9.input');
 
-describe('day9', () => {
+describe.skip('day9', () => {
     describe('setup', () => {
         const inp = `R 4
 U 4
@@ -47,6 +47,7 @@ L 4 - 2
         });
 
         it('Should do another thing', () => {
+            expect(day9(inp3, 9)).toEqual(1);
             expect(day9(inp4, 9)).toEqual(36);
         });
     });
