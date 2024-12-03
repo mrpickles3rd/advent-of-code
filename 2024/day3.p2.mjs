@@ -28,4 +28,4 @@ const resultsArray = matchesArray.map(match => {
 // console.log("DB ... 🚀 ~ file: day3.mjs:10 ~ resultsArray ~~~", resultsArray);
 
 const total = resultsArray.reduce((sum, value) => sum + value, 0);
-console.log("DB ... 🚀 ~ file: day3.mjs:14 ~ total ~~~", total);
+console.log("DB ... 🚀 ~ file: day3.mjs:14 ~ total ~~~", total, 95411583);
