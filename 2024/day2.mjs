@@ -1,6 +1,10 @@
 import { input } from './day2.input.mjs';
 
-const inputArray = input.split('\n').map(line => line.split(' ').map(Number));
+const inputArray = input.split('\n').map(
+  line => line.split(' ').map(
+    value => parseInt(value, 10),
+  ),
+);
 // console.log("DB ... 🚀 ~ file: day2.mjs:11 ~ inputArray ~~~", inputArray);
 
 let validCount = 0;
