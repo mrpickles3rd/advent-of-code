@@ -55,3 +55,4 @@ function countXMAS(input) {
 }
 
 console.log(countXMAS(testInput)); // Output the count of "XMAS"
+console.log(countXMAS(testWithAllLetters)); // Output the count of "XMAS"
