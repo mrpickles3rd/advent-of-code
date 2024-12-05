@@ -1,3 +1,5 @@
+import { input } from './day5.input.mjs';
+
 var testInput = `47|53
 97|13
 97|61
@@ -27,7 +29,8 @@ var testInput = `47|53
 61,13,29
 97,13,75,29,47`;
 
-const [rules, updates] = testInput.split('\n\n');
+// const [rules, updates] = testInput.split('\n\n');
+const [rules, updates] = input.split('\n\n');
 const rulesArray = rules.split('\n').map(line => line.split('|').map(Number));
 const updatesArray = updates.split('\n').map(line => line.split(',').map(Number));
 
@@ -45,3 +48,10 @@ function isValidUpdate(update, rules) {
 const validUpdates = updatesArray.filter(update => isValidUpdate(update, rulesArray));
 
 console.log('Valid Updates:', validUpdates);
+
+const middlePagesSum = validUpdates.reduce((sum, update) => {
+    const middleIndex = Math.floor(update.length / 2);
+    return sum + update[middleIndex];
+}, 0);
+
+console.log('Sum of Middle Pages:', middlePagesSum);
