@@ -1,3 +1,5 @@
+import { input } from './day4.input.mjs';
+
 var testInput = `..X...
 .SAMX.
 .A..A.
@@ -56,3 +58,4 @@ function countXMAS(input) {
 
 console.log(countXMAS(testInput)); // Output the count of "XMAS"
 console.log(countXMAS(testWithAllLetters)); // Output the count of "XMAS"
+console.log(countXMAS(input)); // Output the count of "XMAS"
