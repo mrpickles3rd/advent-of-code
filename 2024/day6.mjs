@@ -11,6 +11,17 @@ var testInput = `....#.....
 #.........
 ......#...`;
 
+var validLoop1 = `....#.....
+....+---+#
+....|...|.
+..#.|...|.
+....|..#|.
+....|...|.
+.#.O^---+.
+........#.
+#.........
+......#...`;
+
 function predictGuardPath(map) {
     const directions = ['^', '>', 'v', '<'];
     const moves = {
@@ -54,6 +65,6 @@ function predictGuardPath(map) {
 }
 
 // const map = testInput.split('\n').map(line => line.split(''));
-const map = input.split('\n').map(line => line.split(''));
+const map = testInput.split('\n').map(line => line.split(''));
 console.log(predictGuardPath(map));
 
