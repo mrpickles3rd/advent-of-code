@@ -103,18 +103,6 @@ function addHashes(map) {
                 const dx = a2.x - a1.x;
                 const dy = a2.y - a1.y;
 
-                // Count the pair being calculated
-                const posA1 = `${a1.x},${a1.y}`;
-                const posA2 = `${a2.x},${a2.y}`;
-                if (!countedPositions.has(posA1)) {
-                    countedPositions.add(posA1);
-                    hashCount++;
-                }
-                if (!countedPositions.has(posA2)) {
-                    countedPositions.add(posA2);
-                    hashCount++;
-                }
-
                 // Continue adding hashes in each direction until they can't fit into the grid
                 let k = 1;
                 while (true) {
