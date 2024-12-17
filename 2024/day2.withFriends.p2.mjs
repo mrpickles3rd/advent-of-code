@@ -38,9 +38,11 @@ const isValidWithOneRemoval = (row) => {
   return false;
 };
 
+let validCount = 0;
 numericalValues.forEach(row => {
-  console.log(isValidSequence(row) || isValidWithOneRemoval(row));
+  const isValid = isValidSequence(row) || isValidWithOneRemoval(row);
+  console.log(isValid);
+  if (isValid) validCount++;
 });
 
-const validCount = numericalValues.filter(row => isValidSequence(row) || isValidWithOneRemoval(row)).length;
 console.log(validCount);
