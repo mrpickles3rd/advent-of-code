@@ -4,14 +4,7 @@ const testInput = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo
 const testInput2 = "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
 
 function cleanInput(input) {
-    let cleanedInput = input.replaceAll(/don't\(\)[\s\S]*?do\(\)/g, '');
-
-    const lastDontIndex = cleanedInput.lastIndexOf("don't()");
-    const lastDoIndex = cleanedInput.lastIndexOf("do()");
-
-    if (lastDontIndex > lastDoIndex) {
-        cleanedInput = cleanedInput.substring(0, lastDontIndex);
-    }
+    let cleanedInput = input.replace(/don't\(\)[\s\S]*?do\(\)|don't\(\)[\s\S]*$/g, '');
 
     const matches = cleanedInput.match(/mul\(\d+,\d+\)/g);
     if (!matches) return 0;
@@ -21,7 +14,10 @@ function cleanInput(input) {
     }, 0);
 }
 
-// const result = cleanInput(testInput);
-// const result = cleanInput(testInput2);
-const result = cleanInput(input);
-console.log(result); // For testing purposes
+console.time('Performance Test');
+console.log(process.memoryUsage());
+for (let i = 0; i < 10000; i++) {
+    cleanInput(input);
+}
+console.timeEnd('Performance Test');
+console.log(process.memoryUsage());
