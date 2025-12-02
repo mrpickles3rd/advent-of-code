@@ -1,0 +1,146 @@
+<!-- semantic-html.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Examples</title>
+    <meta name="description" content="Examples of semantic HTML elements including headers, lists, tables, forms, and links.">
+    <meta name="keywords" content="HTML, semantic HTML, examples, headers, lists, tables, forms, links">
+    <meta name="author" content="Your Name">
+    <link rel="canonical" href="https://www.yourwebsite.com/semantic-html-examples">
+    <meta property="og:title" content="Semantic HTML Examples">
+    <meta property="og:description" content="Examples of semantic HTML elements including headers, lists, tables, forms, and links.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/semantic-html-examples">
+    <meta property="og:image" content="https://www.yourwebsite.com/images/semantic-html-examples.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Semantic HTML Examples">
+    <meta name="twitter:description" content="Examples of semantic HTML elements including headers, lists, tables, forms, and links.">
+    <meta name="twitter:image" content="https://www.yourwebsite.com/images/semantic-html-examples.png">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="/" title="Home">Nav 1</a></li>
+                <li><a href="/about" title="About Us">Nav 2</a></li>
+                <li><a href="/contact" title="Contact Us">Nav 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section aria-labelledby="unique-section">
+            <h1 id="unique-section">There can be only one</h1>
+            <p>This is a semantic HTML example, of a section with a H1 tag.</p>
+        </section>
+        <section aria-labelledby="importance-section">
+            <h2 id="importance-section">2nd level of importance</h2>
+            <p>This is another section.</p>
+        </section>
+        <section aria-labelledby="lists-section">
+            <h2 id="lists-section">Lists</h2>
+            <p>Unordered first</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <p>Ordered second</p>
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ol>
+        </section>
+        <section aria-labelledby="tables-section">
+            <h2 id="tables-section">Tables</h2>
+            <p>Let's have a table</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                        <th>Header 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                    </tr>
+                    <tr>
+                        <td>Data 4</td>
+                        <td>Data 5</td>
+                        <td>Data 6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section aria-labelledby="forms-section">
+            <h2 id="forms-section">Forms</h2>
+            <p>Fill out the form below:</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section aria-labelledby="links-section">
+            <h2 id="links-section">Useful Links</h2>
+            <p>Here are some useful links:</p>
+            <ul>
+                <li><a href="https://www.example.com" target="_blank" rel="noopener noreferrer" title="Example">Example (in new tab)</a></li>
+                <li><a href="https://www.anotherexample.com" title="Another Example">Another Example</a></li>
+                <li><a href="https://www.yetanotherexample.com" title="Yet Another Example">Yet Another Example</a></li>
+            </ul>
+        </section>
+        <section aria-labelledby="button-section">
+            <h2 id="button-section">Button Section</h2>
+            <p>Click the button below:</p>
+            <button type="button" aria-label="Click Me Button">Click Me!</button>
+        </section>
+        <section aria-labelledby="form-section">
+            <h2 id="form-section">Form Section</h2>
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+
+                <label for="color">Favorite Color:</label>
+                <input type="color" id="color" name="color">
+
+                <label for="range">Range:</label>
+                <input type="range" id="range" name="range" min="0" max="100">
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; &lt;YEAR&gt; My Website</p>
+        <nav aria-label="Footer Navigation">
+            <ul>
+                <li><a href="/" title="Home">Home</a></li>
+                <li><a href="/about" title="About Us">About Us</a></li>
+                <li><a href="/contact" title="Contact Us">Contact Us</a></li>
+                <li><a href="/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service" title="Terms of Service">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

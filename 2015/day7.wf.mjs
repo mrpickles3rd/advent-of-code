@@ -9,7 +9,7 @@ y RSHIFT 2 -> g
 NOT x -> h
 NOT y -> i`;
 
-const wires = {};
+let wires = {};
 
 function getValue(operand) {
   if (!isNaN(operand)) {
@@ -51,7 +51,14 @@ function evaluate(wire) {
 
 // Start evaluation from wire 'a'
 evaluate('a');
-console.log(wires.a); // Output the result to verify
+const signalA = wires.a;
+
+// Override wire 'b' with the signal from wire 'a' and reset other wires
+wires = { b: signalA };
+
+// Re-evaluate wire 'a'
+evaluate('a');
+console.log(wires.a); // Output the new result to verify
 
 
 

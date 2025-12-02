@@ -4,11 +4,16 @@ const testInput = `(()(()(`;
 
 function calculateFloor(input) {
     let counter = 0;
-    for (const char of input) {
+    for (let i = 0; i < input.length; i++) {
+        const char = input[i];
         if (char === '(') {
             counter++;
         } else if (char === ')') {
             counter--;
+        }
+        if (counter === -1) {
+            return i + 1; // Return the 1-based index
+
         }
     }
     return counter;
