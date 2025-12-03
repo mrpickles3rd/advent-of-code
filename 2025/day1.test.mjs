@@ -2,6 +2,8 @@ import { splitLines, parseInput } from './_Strings.mjs';
 
 import { input1 } from './day1.input.mjs';
 
+import { rotateDial, zerosFound, zerosPassed } from './day1.mjs';
+
 const input1_test = `L68
 L30
 R48
@@ -31,24 +33,15 @@ const MIN = 0;
 const MAX = 99;
 const directions = { L: -1, R: 1 };
 
-function rotateDial(position, { direction, amount }) {
+function _rotateDial(position, { direction, amount }) {
     // if (amount === 0) throw new Error('Amount cannot be zero');
     const ret = {};
-console.log(position);
-console.log(position);
-console.log(position);
-console.log(position);
-console.log(position);
+
     const rotated = position + (directions[direction] * amount);
-    console.log('DB ... 🚀 ~ day1.mjs:39 ~ rotateDial ~ rotated ~~~', rotated);
     if (rotated < MIN) {
-        console.log('DB ... 111 🚀 ~ day1.mjs:40 ~ rotateDial ~ rotated < MIN ~~~', rotated < MIN);
         const passed = rotated / (MAX + 1);
-        console.log('DB ... 🚀 ~ day1.mjs:43 ~ rotateDial ~ passed ~~~', passed);
-        // console.log('DB ... 🚀 ~ day1.mjs:41 ~ rotateDial ~ passed ~~~', passed);
-        // const position = MAX + ((rotated % (MAX + 1)) + 1);
-        const position = MAX + ((rotated % (MAX + 1)) + 1);
-        console.log('DB ... 🚀 ~ day1.mjs:46 ~ rotateDial ~ position ~~~', position);
+        console.log('DB ... 🚀 ~ day1.mjs:41 ~ rotateDial ~ passed ~~~', passed);
+        const position = MAX + ((rotated % (MAX + 1)) + 1)
 
         ret.position = position;
         ret.passed = passed;
@@ -56,26 +49,64 @@ console.log(position);
     }
 
     if (rotated > MAX) {
-        console.log('DB ... 222 🚀 ~ day1.mjs:51 ~ rotateDial ~ rotated > MAX ~~~', rotated > MAX);
         const passed = rotated / (MAX + 1);
-        console.log('DB ... 🚀 ~ day1.mjs:56 ~ rotateDial ~ passed ~~~', passed);
-        const position = MIN + (rotated % (MAX + 1));
-        console.log('DB ... 🚀 ~ day1.mjs:58 ~ rotateDial ~ position ~~~', position);
+        const position = MIN + (rotated % (MAX + 1))
         ret.position = position;
         ret.passed = passed;
         return ret;
     }
 
-    console.log('DB ... 333 🚀 ~ day1.mjs:60 ~ rotateDial ~ rotated within range ~~~', rotated >= MIN && rotated <= MAX);
     ret.position = rotated;
     ret.passed = 0;
     return ret;
 }
 
-// console.debug('Should go from 0 to 99, when rotating L1:', rotateDial(0, { direction: 'L', amount: 1 }), '===', 99, '\n\t', rotateDial(0, { direction: 'L', amount: 1 }) === 99);
-// console.debug('Should go from 0 to 99, when rotating L101:', rotateDial(0, { direction: 'L', amount: 101 }), '===', 99, '\n\t', rotateDial(0, { direction: 'L', amount: 101 }) === 99);
-// console.debug('Should go from 99 to 0, when rotating R1:', rotateDial(99, { direction: 'R', amount: 1 }), '===', 0, '\n\t', rotateDial(99, { direction: 'R', amount: 1 }) === 0);
-// console.debug('Should go from 99 to 0, when rotating R101:', rotateDial(99, { direction: 'R', amount: 101 }), '===', 0, '\n\t', rotateDial(99, { direction: 'R', amount: 101 }) === 0);
+describe.skip('rotateDial', () => {
+    it('Should go from 0 to 99, when rotating L1', () => {
+        const { position } = rotateDial(0, { direction: 'L', amount: 1 });
+        expect(position).toBe(99);
+    });
+
+    it('Should go from 0 to 99, when rotating L101', () => {
+        const { position } = rotateDial(0, { direction: 'L', amount: 101 });
+        expect(position).toBe(99);
+    });
+
+    it('Should go from 99 to 0, when rotating R1', () => {
+        const { position } = rotateDial(99, { direction: 'R', amount: 1 });
+        expect(position).toBe(0);
+    });
+
+    it('Should go from 99 to 0, when rotating R101', () => {
+        const { position } = rotateDial(99, { direction: 'R', amount: 101 });
+        expect(position).toBe(0);
+    });
+
+    it('Should rotate 100 and stay at 0 going right', () => {
+        const { position } = rotateDial(0, { direction: 'R', amount: 100 });
+        expect(position).toBe(0);
+    });
+
+    it('Should rotate 100 and stay at 0 going left', () => {
+        const { position } = rotateDial(0, { direction: 'L', amount: 100 });
+        expect(position).toBe(0);
+    });
+
+    it('Should rotate 100 and stay at 99 going right', () => {
+        const { position } = rotateDial(99, { direction: 'R', amount: 100 });
+        expect(position).toBe(99);
+    });
+
+    it('Should rotate 100 and stay at 99 going left', () => {
+        const { position } = rotateDial(99, { direction: 'L', amount: 100 });
+        expect(position).toBe(99);
+    });
+});
+
+// describe('zerosFound', () => {
+
+// });
+
 // console.debug(
 //     'if the dial were pointing at 11, a rotation of R8 would cause the dial to point at 19.',
 //     rotateDial(11, { direction: 'R', amount: 8 }), '===', 19, '\n\t', rotateDial(11, { direction: 'R', amount: 8 }) === 19);
@@ -85,7 +116,7 @@ console.log(position);
 
 // console.debug('After that, a rotation of R5 could cause it to point at 0:', rotateDial(95, { direction: 'R', amount: 5 }), '===', 0, '\n\t', rotateDial(95, { direction: 'R', amount: 5 }) === 0);
 
-function zerosFound(input, pos = START) {
+function _zerosFound(input, pos = START) {
     let count = 0;
     let zeros = 0;
     let position = pos;
@@ -102,7 +133,7 @@ function zerosFound(input, pos = START) {
     return zeros;
 }
 
-function zerosPassed(input, pos = START) {
+function _zerosPassed(input, pos = START) {
     let count = 0;
     let zeros = 0;
     let passed = 0;
@@ -147,8 +178,8 @@ function zerosPassed(input, pos = START) {
 // L50
 // R100
 // L50`;
-// const expect = zerosFound(parseInput(t3), s1);
-// console.debug('Should find 2 zeros for starting at 0 going L555, R500, R45, R10, R1000, L1000, L50, R100, L50:', expect, '===', 3, '\n\t', expect === 3);
+// const expected = zerosFound(parseInput(t3), s1);
+// console.debug('Should find 2 zeros for starting at 0 going L555, R500, R45, R10, R1000, L1000, L50, R100, L50:', expected, '===', 3, '\n\t', expected === 3);
 // // console.debug('Should find 3 zeros for starting at 0 going L555, R555, R1000, L1000:', zerosFound(parseInput(t3), s1), '===', 3, '\n\t', zerosFound(parseInput(t3), s1) === 3);
 // // console.log('Math is hard', zerosFound(parseInput(input1)))
 
@@ -163,5 +194,3 @@ function zerosPassed(input, pos = START) {
 // // Less then 27557
 // // More then 2584
 // console.warn('Part 1:', zerosPassed(parseInput(input1)));
-
-export { rotateDial, zerosFound, zerosPassed };
